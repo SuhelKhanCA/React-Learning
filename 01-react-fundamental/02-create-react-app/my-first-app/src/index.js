@@ -15,7 +15,7 @@ function Hello() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
+  <React.StrictMode> // generate warning if error or something
     <h1>Hello World ... !</h1>
   </React.StrictMode>
 )
