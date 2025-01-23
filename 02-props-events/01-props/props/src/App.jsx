@@ -6,11 +6,16 @@ const Users = { hobby: "bikes", like: "Song" };
 
 function App() {
 
+  // return (
+  //   <>
+  //     <h1>Hello world! </h1>
+  //     <Greetings firstName="Suhel" lastName="Khan" fullName="Mr XYZ" />
+     
+  //   </>
+  // );
   return (
     <>
-      <h1>Hello world! </h1>
-      <Greetings firstName="Suhel" lastName="Khan" fullName="Mr XYZ" />
-     
+      <Greetings firstName="Suhel"><h1>This is the content of children props</h1></Greetings>
     </>
   );
 }
