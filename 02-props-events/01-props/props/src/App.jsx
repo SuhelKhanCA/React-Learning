@@ -9,9 +9,8 @@ function App() {
   return (
     <>
       <h1>Hello world! </h1>
-      <Greetings firstName="Suhel" lastName="Khan" age={21} users={ Users1 } />
-      <Greetings firstName="Suhel" lastName="Khan" age={21} users={ Users1 } />
-      <Greetings firstName="Suhel" lastName="Khan" age={21} users={ Users1 } />
+      <Greetings firstName="Suhel" lastName="Khan" fullName="Mr XYZ" />
+     
     </>
   );
 }
