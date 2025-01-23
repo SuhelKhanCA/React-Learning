@@ -2,7 +2,7 @@
 
 ## Props
 
-- **Definition**: Props (short for properties) are read-only attributes used to pass data from parent to child components.
+- **Definition**: Props (short for properties) are *read-only* attributes used to pass data from parent to child components.
 - **Usage**: Props are passed to components similarly to HTML attributes.
 - **Syntax**:
   ```jsx
