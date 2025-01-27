@@ -2,7 +2,7 @@
 
 ## Props
 
-- **Definition**: Props (short for properties) are *read-only* attributes used to pass data from parent to child components.
+- **Definition**: Props (short for properties) are _read-only_ attributes used to pass data from parent to child components.
 - **Usage**: Props are passed to components similarly to HTML attributes.
 - **Syntax**:
   ```jsx
@@ -28,6 +28,46 @@
   ```jsx
   ChildComponent.defaultProps = {
     propName: "defaultValue",
+  };
+  ```
+
+## Rendering Lists
+
+- **Definition**: Rendering lists in React involves using the `map` function to iterate over an array and return a list of elements.
+- **Usage**: Each item in the list should have a unique `key` prop to help React identify which items have changed.
+- **Syntax**:
+
+  ```jsx
+  const items = ["Item 1", "Item 2", "Item 3"];
+
+  const ListComponent = () => {
+    return (
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    );
+  };
+  ```
+
+- **Keys**: Keys should be unique and stable. They help React optimize rendering by keeping track of elements.
+
+  ```jsx
+  const items = [
+    { id: 1, name: "Item 1" },
+    { id: 2, name: "Item 2" },
+    { id: 3, name: "Item 3" },
+  ];
+
+  const ListComponent = () => {
+    return (
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    );
   };
   ```
 
@@ -78,6 +118,7 @@
 
 - Props are used to pass data from parent to child components.
 - Props are read-only and should not be modified.
+- Lists can be rendered using the `map` function, and each item should have a unique `key`.
 - Events are used to handle user interactions.
 - Event handlers can be defined in both class and functional components.
 - React's synthetic event system ensures cross-browser compatibility.
