@@ -11,7 +11,8 @@ function Counter() {
   };
 
   const handleDecrease = () => {
-    setCounter(counter - 1);
+    // setCounter(counter - 1);
+    setCounter((previousState) => previousState - 1);
   };
 
   return (
