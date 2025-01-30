@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import Counter from "./Counter";
+import ArrayStateExample from "./ArrayStateExample";
+import ObjectStateExample from "./ObjectStateExample";
 
 // hooks:
 // class based component : old way
@@ -53,7 +55,9 @@ function App() {
 
   return (
     <>
-      <Counter />
+      {/* <Counter /> */}
+      {/* <ArrayStateExample /> */}
+      <ObjectStateExample />
     </>
   )
 }
