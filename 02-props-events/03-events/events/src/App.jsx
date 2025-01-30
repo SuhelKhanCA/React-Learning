@@ -37,7 +37,7 @@ function App() {
         Click Me 3
       </button>
 
-      <Greeting onClick={handleClick} />  { /* will receive 'onClick' as a props */}
+      <Greeting handleClick={handleClick} />  { /* will receive 'onClick' as a props */}
     </>
   );
 }
