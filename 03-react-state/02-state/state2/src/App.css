@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+/* =======Style User for Better Visibiity====== */
+.user{
+  background-color: #fff;
+  color: #333;
+  margin: 1rem;
+  padding: 1rem;
+}
