@@ -24,7 +24,7 @@ function Users({ users }) {
       ))} */}
           
           {users.map((user) => {
-              return <User userDetails={user} />;
+              return <User userDetails={user} key={user.id} />;
           })}
     </div>
   );
