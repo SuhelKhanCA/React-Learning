@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.form-container input{
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+.form-container button {
+  background-color: #fff;
+  color: #333;
+}
