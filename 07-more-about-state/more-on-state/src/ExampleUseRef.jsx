@@ -1,6 +1,7 @@
 import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
+import ControlledUncontrolled from "./ControlledUncontrolled";
 
 // custom hooks
 // useRef
@@ -49,23 +50,29 @@ function ExampleUseRef() {
   // number
   // []
   // {}
-    // html element
-    
-    // learning : Change of ref does not trigger re-render of html element
+  // html element
+
+  // learning : Change of ref does not trigger re-render of html element
   const h1Ref = useRef();
   function handleClick() {
     // console.log(h1Ref);
     console.log(h1Ref.current);
     const h1 = h1Ref.current;
     h1.textContent = "This is new text";
-      h1.style.background = "blue";
+    h1.style.background = "blue";
     console.log(h1);
   }
 
+  // return (
+  //   <>
+  //     <h1 ref={h1Ref}>Hello There</h1>
+  //     <button onClick={handleClick}>Change value</button>
+  //   </>
+  // );
+
   return (
     <>
-      <h1 ref={h1Ref}>Hello There</h1>
-      <button onClick={handleClick}>Change value</button>
+      <ControlledUncontrolled />
     </>
   );
 }
