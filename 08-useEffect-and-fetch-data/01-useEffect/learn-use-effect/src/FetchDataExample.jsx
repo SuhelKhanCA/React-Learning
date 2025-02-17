@@ -1,0 +1,42 @@
+import { useEffect, useState } from "react";
+import User from "./User";
+const URL = "https://jsonplaceholder.typicode.com/useres";
+function FetchDataExample() {
+    const [users, setUsers] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
+
+    const fetchData = async () => {
+        setIsLoading(true);
+        const response = await fetch(URL);
+        if (!(response.status >= 200 && response.status <= 299)) {
+            setErrorMsg(`${response.status} Error`);
+            setIsError(true);
+            setIsLoading(false); // otherwise loading will be showing continuosly
+            return;
+        }
+    const data = await response.json();
+        setUsers(data);
+        setIsLoading(false);
+    };
+    
+    // useEffect Hook
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    // show loading
+    if (isLoading) {
+        return <h1>loading....</h1>;
+    }
+    // show error
+    if (setIsError) {
+      return <h2>{errorMsg}</h2>;
+    }
+    return <>
+        {users.map((user) => <User key={user.id} {...user} />)}
+    </>;
+}
+
+export default FetchDataExample;
