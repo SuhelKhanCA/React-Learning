@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import User from "./User";
-const URL = "https://jsonplaceholder.typicode.com/useres";
+const URL = "https://jsonplaceholder.typicode.com/users";
+
+
 function FetchDataExample() {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
     const [errorMsg, setErrorMsg] = useState("");
 
+    // async-await
     const fetchData = async () => {
         setIsLoading(true);
         const response = await fetch(URL);
         if (!(response.status >= 200 && response.status <= 299)) {
             setErrorMsg(`${response.status} Error`);
             setIsError(true);
-            setIsLoading(false); // otherwise loading will be showing continuosly
+            setIsLoading(false); // otherwise loading will be showing continuously
             return;
         }
     const data = await response.json();
@@ -31,7 +34,7 @@ function FetchDataExample() {
         return <h1>loading....</h1>;
     }
     // show error
-    if (setIsError) {
+    if (isError) {
       return <h2>{errorMsg}</h2>;
     }
     return <>
