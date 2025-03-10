@@ -10,9 +10,9 @@ function FetchDataExample() {
     const [errorMsg, setErrorMsg] = useState("");
 
     // async-await
-    const fetchData = async () => {
+    const fetchData = async (obj) => {
         setIsLoading(true);
-        const response = await fetch(URL);
+        const response = await fetch(URL, obj);
         if (!(response.status >= 200 && response.status <= 299)) {
             setErrorMsg(`${response.status} Error`);
             setIsError(true);
@@ -26,7 +26,15 @@ function FetchDataExample() {
     
     // useEffect Hook
     useEffect(() => {
-        fetchData();
+        const controller = new AbortController();
+        const signal = controller.signal;
+
+        fetchData({ signal: signal });
+        // abort-request when component unmount
+        return () => {
+            console.log("Aborting request....!");
+            controller.abort();
+        }
     }, []);
 
     // show loading
