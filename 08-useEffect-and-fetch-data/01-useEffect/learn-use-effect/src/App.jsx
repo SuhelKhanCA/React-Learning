@@ -6,6 +6,7 @@ import FetchData from "./FetchData";
 import CleanupFunctionDemo from "./CleanupFunctionDemo";
 
 import MouseEvent from "./MouseEvent";
+import UserForm from "./UserForm";
 
 const URL = "https://jsonplaceholder.typicode.com/users";
 function App() {
@@ -35,7 +36,8 @@ function App() {
       />
       {/*{isShow && <CleanupFunctionDemo />} */}
       
-      {isShow && <FetchDataExample  />}
+      {/* {isShow && <FetchDataExample  />} */}
+      {isShow && <UserForm/>}
     </>
   );
 
