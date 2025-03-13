@@ -1,9 +1,16 @@
 import React from "react";
 
-function Todo({ id, title, completed }) {
+function Todo({ id, title, completed, dispatch }) {
+  const onDelete = ()=>{
+    console.log("first")
+    dispatch({type : "DELETE_TODO", payload: {id:id}});
+  }
+  function onToggle() {
+    dispatch({ type: "TOGGLE_TODO", payload: { id: id } });
+  }
   return (
     <div>
-      <li className="todo" data-id={id}>
+      <li className="todo" >
         <span className={`todo-title ${completed ? "completed" : ""}`}>
           {title}
         </span>
