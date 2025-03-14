@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
-
-function AddTodoForm({dispatch}) {
+import { useState } from "react";
+import { useTodos } from "./contexts/TodosProvider";
+function AddTodoForm() {
+  const { addNewTodo } = useTodos();
   const [title, setTitle] = useState("");
   function handleSubmit(e) {
-    console.log("Form submitted")
     e.preventDefault();
+    if (title.trim().length === 0) {
+      alert("type something ...");
+      return;
+    }
     const newTodo = {
       title: title,
       completed: false,
-      id : crypto.randomUUID()
-    }
-    dispatch({ type: "ADD_TODO", payload: {newTodo} });
+      id: crypto.randomUUID(),
+    };
+    // console.log(newTodo);
+    addNewTodo(newTodo);
+    setTitle("");
   }
   return (
     <>
@@ -32,4 +38,4 @@ function AddTodoForm({dispatch}) {
   );
 }
 
-export default AddTodoForm
+export default AddTodoForm;

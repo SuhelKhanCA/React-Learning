@@ -1,32 +1,26 @@
-import React from "react";
+import { useTodos } from "./contexts/TodosProvider";
 
-function Todo({ id, title, completed, dispatch }) {
-  const onDelete = ()=>{
-    console.log("first")
-    dispatch({type : "DELETE_TODO", payload: {id:id}});
-  }
-  function onToggle() {
-    dispatch({ type: "TOGGLE_TODO", payload: { id: id } });
-  }
+function Todo({ completed, id, title }) {
+    const { handleDelete, handleToggle } = useTodos();
   return (
     <div>
-      <li className="todo" >
+      <li className="todo">
         <span className={`todo-title ${completed ? "completed" : ""}`}>
           {title}
         </span>
-        <div>
+        <div className="toggle-delete">
           <input
             type="checkbox"
             name="completed"
             className="todo-checkbox"
             checked={completed}
-            onChange={() => onToggle(id)}
+            onChange={() => handleToggle(id)}
           />
           <button
             className="delete-todo-button"
-            onClick={() => onDelete(id)}
+            onClick={() => handleDelete(id)}
           >
-            x
+            ×
           </button>
         </div>
       </li>

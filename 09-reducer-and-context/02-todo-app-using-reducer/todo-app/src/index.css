@@ -74,27 +74,33 @@ body {
 }
 .toggle-delete {
   display: flex;
-  /* border: 2px solid green; */
+  align-items: center;
   gap: 1rem;
 }
 .delete-todo-button {
   font-family: inherit;
   font-weight: bold;
-  width: 20px;
-  padding: 0 1rem;
-  font-size: 1.4rem;
-  text-align: center;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: none;
+  border: 2px solid white;
+  border-radius: 50%;
   color: white;
   cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+.delete-todo-button:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 .todo-checkbox {
-  /* height: 60px; */
-  width: 20px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
   outline: none;
   border: none;
   accent-color: white;

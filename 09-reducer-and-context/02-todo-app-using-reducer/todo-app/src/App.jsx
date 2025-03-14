@@ -2,6 +2,12 @@ import { useState } from "react";
 import { useReducer } from "react";
 import AddTodoForm from "./AddTodoForm";
 import Todos from "./Todos";
+import { createContext } from "react";
+
+// adding context to Todo-app
+
+export const TodosContext = createContext();
+
 
 function reducer(todos, action) {
   if (action.type === "DELETE_TODO") {
@@ -33,11 +39,18 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, initialTodos);
 
   return (
-    <>
-      <h1 className="heading">Todo List</h1>
-      <AddTodoForm dispatch={dispatch} />
-      <Todos todos={todos} dispatch={dispatch} />
-    </>
+    <TodosContext.Provider value={{
+      dispatch: dispatch,
+      todos: todos,
+    }}>
+      <>
+        <h1 className="heading">Todo List</h1>
+        {/* <AddTodoForm dispatch={dispatch} /> */}
+        <AddTodoForm />
+        {/* <Todos todos={todos} dispatch={dispatch} /> */}
+        <Todos/>
+      </>
+    </TodosContext.Provider>
   );
 }
 
